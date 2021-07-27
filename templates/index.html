@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File and validate before save to Database eusing Python Flask PostgreSQL and SQLAlchemy</title>
+</head>
+<body>
+    <h3>Upload File and validate before save to Database eusing Python Flask PostgreSQL and SQLAlchemy</h3>
+    <h3>Select a file to upload</h3>
+    <p>
+        {% with messages = get_flashed_messages() %} 
+            {% if messages %} 
+                {% for message in messages %} 
+                    <div class="alert alert-primary">
+                        <strong>{{ message }}</strong>
+                    </div>
+                {% endfor %} 
+            {% endif %}  
+        {% endwith %}
+    </p>
+
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        First Name: <input type="text" name="fname" placeholder="First Name" required>
+        Last Name: <input type="text" name="lname" placeholder="Last Name" required>
+        <dl>
+            <p>
+                <input type="file" name="inputFile" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" value="Submit">
+        </p>
+    </form>
+    <style>
+        .alert-primary {
+            color: #004085;
+            background-color: #cce5ff;
+            border-color: #b8daff;
+        }
+        .alert {
+            position: relative;
+            padding: .75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+        }
+        </style>
+</body>
+</html>
